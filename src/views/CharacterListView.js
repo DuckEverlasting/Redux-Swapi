@@ -34,10 +34,10 @@ class CharacterListView extends React.Component {
         )}
         {this.props.fetching && (
           // return something here to indicate that you are fetching data
-          <p className="loading">LOADING...</p>
+          <h3 className="loading">LOADING...</h3>
         )}
         {this.props.error && (
-          <p>this.props.error</p>
+          <p className="loading">this.props.error</p>
         )}
       </div>
   )}
