@@ -24,7 +24,7 @@ class CharacterListView extends React.Component {
     return(
       <div>
         <div className="header">
-          <h1>ALL THE STARS</h1>
+          <h1>ALL OF THE STARS</h1>
           <h2>SOME OF THE WARS</h2>
         </div>
         {this.props.characters && !this.props.nextPage && (
