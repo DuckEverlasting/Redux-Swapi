@@ -1,28 +1,69 @@
-.App {
+body {
+  margin: 0;
   text-align: center;
+  background: url("http://backgroundlabs.com/wp-content/uploads/2013/04/starfield-background.png");
+  background-size: auto;
+  background-repeat: repeat;
+  font-family: "Exo 2"
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+h1 {
+  margin: 10px 0;
+  font-size: 4rem;
 }
 
-.App-header {
-  background-color: #222;
+h2 {
+  margin: 10px 0;
+  font-size: 2rem;
+}
+
+h3 {
+  margin: 5px 0;
+  font-size: 1.6rem;
+}
+
+.header {
+  margin: -10px 0 0;
+  padding: 20px 0 30px;
+  color: rgb(255, 238, 0);
+  background: linear-gradient(rgba(0, 247, 255, 0.342) 0%, rgba(0, 247, 255, 0.281) 25%, rgba(0, 247, 255, 0) 90%);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.664);
+}
+
+.CharacterList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 10px auto;
+}
+
+.Character {
+  margin: 20px;
   height: 150px;
-  padding: 20px;
-  color: white;
+  width: 280px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.788);
+  border: 4px solid rgb(255, 238, 0);
+  border-radius: 20px;
+  box-shadow: 0 0 20px -8px rgb(255, 238, 0);
 }
 
-.App-title {
-  font-size: 1.5em;
+.character p {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: start;
+  padding-left: 20px;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.loading {
+  margin: 20px auto;
+  height: 150px;
+  width: 250px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.788);
+  border: 4px solid rgb(255, 238, 0);
+  border-radius: 20px;
+  box-shadow: 0 0 20px -8px rgb(255, 238, 0);
 }

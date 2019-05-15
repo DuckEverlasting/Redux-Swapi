@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { CharacterList } from "../components";
+import { fetchAction } from "../actions";
 // import actions
 
 class CharacterListView extends React.Component {
@@ -11,25 +12,49 @@ class CharacterListView extends React.Component {
 
   componentDidMount() {
     // call our action
+    this.props.fetchAction("https://swapi.co/api/people/")
+  }
+
+  componentDidUpdate(prevProps) {
+    (prevProps.nextPage !== this.props.nextPage && this.props.nextPage !== null)
+    && (this.props.fetchAction(this.props.nextPage))
   }
 
   render() {
-    if (this.props.fetching) {
-      // return something here to indicate that you are fetching data
-    }
-    return (
-      <div className="CharactersList_wrapper">
-        <CharacterList characters={this.props.characters} />
+    return(
+      <div>
+        <div className="header">
+          <h1>ALL OF THE STARS</h1>
+          <h2>SOME OF THE WARS</h2>
+        </div>
+        {this.props.characters && !this.props.nextPage && (
+          <div className="CharactersList_wrapper">
+            <CharacterList characters={this.props.characters} />
+          </div>
+        )}
+        {this.props.fetching && (
+          // return something here to indicate that you are fetching data
+          <h3 className="loading">LOADING...</h3>
+        )}
+        {this.props.error && (
+          <p className="loading">this.props.error</p>
+        )}
       </div>
-    );
-  }
+  )}
 }
 
 // our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean
-export default connect(
-  null /* mapStateToProps replaces null here */,
-  {
-    /* action creators go here */
+const mapStateToProps = state => {
+  return {
+    characters: state.charsReducer.characters,
+    fetching: state.charsReducer.fetching,
+    error: state.charsReducer.error,
+    nextPage: state.charsReducer.nextPage
   }
+}
+
+export default connect(
+  mapStateToProps,
+  { fetchAction }
 )(CharacterListView);
